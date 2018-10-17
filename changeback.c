@@ -15,50 +15,52 @@ Task:
 #include <cs50.h>
 #include <stdio.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
     float change;
-    int changeOwed;
-    int coinsUsed = 0;
+    int change_owed;
+    int coins_used = 0;
 
     // Get user input, validate that it's positive
-    do {
+    do
+    {
         printf("Change: $");
         change = get_float();
-    } while (change < 0.0);
+    }
+    while (change < 0.0);
 
     // Convert dollars (float) to cents (int). Needed to round to prevent float imprecision when truncated.
     change += 0.005f;
-    changeOwed = change * 100;
+    change_owed = change * 100;
 
     // Quarters
-    while (changeOwed >= 25) {
+    while (change_owed >= 25) {
         printf("used a quarter\n");
-        changeOwed -= 25;
-        coinsUsed++;
+        change_owed -= 25;
+        coins_used++;
     }
 
     // Dimes
-    while (changeOwed >= 10) {
+    while (change_owed >= 10) {
         printf("used a dime\n");
-        changeOwed -= 10;
-        coinsUsed++;
+        change_owed -= 10;
+        coins_used++;
     }
 
     // Nickels
-    while (changeOwed >= 5) {
+    while (change_owed >= 5) {
         printf("used a nickle\n");
-        changeOwed -= 5;
-        coinsUsed++;
+        change_owed -= 5;
+        coins_used++;
     }
 
     // Pennies
-    while (changeOwed >= 1) {
+    while (change_owed >= 1) {
         printf("used a penny\n");
-        changeOwed--;
-        coinsUsed++;
+        change_owed--;
+        coins_used++;
     }
 
     // Print total coins used
-    printf("Coins used: %i\n", coinsUsed);
+    printf("Coins used: %i\n", coins_used);
 }

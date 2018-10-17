@@ -19,3 +19,20 @@ Task:
     - Requires keeping track of first two digits of the CC number along with the length of the CC number
 
 **/
+
+#include <cs50.h>
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+
+    long long cc_number;
+
+    // Prompt user for CC number
+    do
+    {
+        printf("Credit Card number: ");
+        cc_number = get_long_long;
+    }
+    while ();
+
+}

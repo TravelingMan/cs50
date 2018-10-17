@@ -14,26 +14,29 @@ Task:
 #include <cs50.h>
 #include <stdio.h>
 
-int main(void) {
+int main(int argc, char *argv[]) {
     int height;
 
     // Get input from user
-    do {
+    do
+    {
         printf("Enter a height, from 0 to 23: ");
         height = get_int();
     }
-    while ( height < 0 || height > 23 );
+    while (height < 0 || height > 23);
 
     // Iterate over each line
-    for (int i = 1; i < height + 1; i++) {
-
+    for (int i = 1; i < height + 1; i++)
+    {
         // Spaces
-        for (int j = 0; j < height - i; j++){
+        for (int j = 0; j < height - i; j++)
+        {
             printf(" ");
         }
 
         // Hashes ... use `for (int j = 0; j < i * 2; j++)` to make the pyramid full instead of half
-        for (int j = 0; j < i; j++){
+        for (int j = 0; j < i; j++)
+        {
             printf("#");
         }
 
@@ -41,7 +44,8 @@ int main(void) {
         printf("  ");
 
         // Second half of the pyramid. This code sure ain't DRY!
-        for (int j = 0; j < i; j++){
+        for (int j = 0; j < i; j++)
+        {
             printf("#");
         }
 
