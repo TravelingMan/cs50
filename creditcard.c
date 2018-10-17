@@ -3,7 +3,7 @@ Credit Card Verification
 ------------------------
 
 Determine, via checksum, if a credit card number is valid and from what company
-it's from (e.g. VISA, MasterCard).
+it's from (e.g. VISA, MasterCard). Functions apparently discouraged for this exercise.
 
 Task:
 - Prompt and validate CC number
@@ -26,13 +26,36 @@ Task:
 int main(int argc, char *argv[]) {
 
     long long cc_number;
+    int retry = 0;
+    int digit_count = 0;
 
-    // Prompt user for CC number
+    // Prompt user for CC number, prompt to retry if negative or 0
     do
     {
-        printf("Credit Card number: ");
+        if (retry)
+        {
+            printf("Retry: ");
+        }
+        else
+        {
+            printf("Credit Card number: ");
+        }
+
         cc_number = get_long_long;
+        retry = 1;
     }
-    while ();
+    while (cc_number <= 0);
+
+    // Count digits
+    long long cc_copy = cc_number;
+    while (cc_copy != 0)
+    {
+        cc_copy /= 10;
+        digit_count++;
+    }
+
+    // Card type
+
+    // Checksum calculation
 
 }
