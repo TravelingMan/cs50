@@ -22,6 +22,7 @@ Task:
 
 #include <cs50.h>
 #include <stdio.h>
+#include <math.h>
 
 int main(int argc, char *argv[]) {
 
@@ -41,7 +42,7 @@ int main(int argc, char *argv[]) {
             printf("Credit Card number: ");
         }
 
-        cc_number = get_long_long;
+        cc_number = get_long_long();
         retry = 1;
     }
     while (cc_number <= 0);
@@ -56,7 +57,33 @@ int main(int argc, char *argv[]) {
 
     // Card type
 
-    // Checksum calculation
+    // Checksum calculation, reuse cc_copy
+    int odds = 0;
+    int evens = 0;
 
+    for (int i = 1; i < digit_count; i++)
+    {
+        int exponent = pow(10, i);
+        int digit = cc_number % exponent;
+
+        while (digit >= 10)
+        {
+            digit /= 10;
+        }
+
+        // Test for even digit
+        if (i % 2 == 0)
+        {
+            printf("Iteration %i is EVEN, using digit %i. ", i, digit);
+            evens += digit;
+        }
+        else
+        {
+            printf("Iteration %i is ODD, using digit %i. ", i, digit);
+            odds += digit;
+        }
+    }
+
+    printf("Sum of even numbers: %i. Sum of odd numbers: %i.\n", evens, odds);
 
 }
