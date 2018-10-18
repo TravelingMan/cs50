@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
         if (i % 2 == 0)
         {
             printf("Iteration %i is EVEN, using digit %i. ", i, digit);
-            evens += digit;
+            evens += digit * 2;
         }
 
         // Test for odd digit
