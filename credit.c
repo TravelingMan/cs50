@@ -55,8 +55,6 @@ int main(int argc, char *argv[]) {
         digit_count++;
     }
 
-    // Card type
-
     // Checksum calculation, reuse cc_copy
     int odds = 0;
     int evens = 0;
@@ -77,12 +75,18 @@ int main(int argc, char *argv[]) {
             printf("Iteration %i is EVEN, using digit %i. ", i, digit);
             evens += digit;
         }
+
+        // Test for odd digit
         else
         {
             printf("Iteration %i is ODD, using digit %i. ", i, digit);
             odds += digit;
         }
     }
+
+    // Identify card type
+
+    // Display results
 
     printf("Sum of even numbers: %i. Sum of odd numbers: %i.\n", evens, odds);
 
